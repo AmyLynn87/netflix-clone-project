@@ -18,8 +18,11 @@ const App = () => {
     setGenres(responseBody.data.reference_list.values)
   }
 
+  console.log(limit)
+
   useEffect(() => {
     fetchData()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [limit])
 
   return (
@@ -28,8 +31,8 @@ const App = () => {
       <HeroSection />
       {genres && (
         <div className="container">
-          {Object.values(genres).map((genre, index) => (
-            <Section key={index} genre={genre.value} />
+          {Object.values(genres).map((genre) => (
+            <Section key={genre.value} genre={genre.value} />
           ))}
         </div>
       )}
